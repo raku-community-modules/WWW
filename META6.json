@@ -1,0 +1,21 @@
+{
+    "perl"         : "6.c",
+    "name"         : "WWW",
+    "version"      : "1.001001",
+    "description"  : "No-nonsense, simple HTTPS client with JSON decoder",
+    "depends"      : [
+        "HTTP::UserAgent",
+        "JSON::Fast",
+        "IO::Socket::SSL"
+    ],
+    "test-depends" : [
+        "Test",
+        "Test::When",
+        "Test::META"
+    ],
+    "provides"     : {
+        "WWW" : "lib/WWW.pm6"
+    },
+    "authors"       : ["Zoffix Znet"],
+    "support"       : {"source"   : "git://github.com/zoffixznet/perl6-WWW.git"}
+}
