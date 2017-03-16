@@ -100,7 +100,7 @@ be rejected; you have to ensure it's proper manually. Patches welcome.
 - [`LWP::Simple`](https://modules.perl6.org/repo/LWP::Simple)
 - [`HTTP::UserAgent`](https://modules.perl6.org/repo/HTTP::UserAgent)
 
----
+----
 
 #### REPOSITORY
 
