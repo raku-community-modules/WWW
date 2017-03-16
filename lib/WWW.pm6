@@ -12,11 +12,9 @@ sub get ($url) is export {
     }
 }
 
-multi proto post($, %?, *%) {*}
-multi sub   post ($url, *%form) is export {
-    post $url, %, |%form;
-}
-multi sub   post ($url, %headers, *%form) is export {
+proto post ($,    %?,           *%) is export {*}
+multi post ($url,           *%form) is export { post $url, %, |%form }
+multi post ($url, %headers, *%form) is export {
     with HTTP::UserAgent.new.post($url, %form, |%headers) {
         .is-success or fail .&err;
         .decoded-content

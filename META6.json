@@ -1,7 +1,7 @@
 {
     "perl"         : "6.c",
     "name"         : "WWW",
-    "version"      : "1.001002",
+    "version"      : "1.001003",
     "description"  : "No-nonsense, simple HTTPS client with JSON decoder",
     "tags"         : [ "HTTP", "HTTPS", "UserAgent" ],
     "depends"      : [
