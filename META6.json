@@ -3,7 +3,7 @@
     "name"         : "WWW",
     "version"      : "1.001003",
     "description"  : "No-nonsense, simple HTTPS client with JSON decoder",
-    "tags"         : [ "HTTP", "HTTPS" ],
+    "tags"         : [ "HTTP" ],
     "depends"      : [
         "HTTP::UserAgent",
         "JSON::Fast",
