@@ -12,7 +12,7 @@ sub get ($url) is export {
     }
 }
 
-proto post ($,    %?,           *%) is export {*}
+proto post ($,    %?,       *%    ) is export {*}
 multi post ($url,           *%form) is export { post $url, %, |%form }
 multi post ($url, %headers, *%form) is export {
     with HTTP::UserAgent.new.post($url, %form, |%headers) {
