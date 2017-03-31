@@ -5,7 +5,7 @@ use Test;
 use Test::When <online>;
 use WWW;
 
-plan 4;
+plan 8;
 
 for <http  https> -> $prot {
     subtest 'get' => {
@@ -51,4 +51,9 @@ for <http  https> -> $prot {
         throws-like { post $prot ~ '://httpbin.org/status/404' }, Exception,
             :message(/404/), "can detect a POST 404 over $prot.uc()";
     }
+}
+
+for &get, &jget, &post, &jpost -> &s {
+    isa-ok s('party'), Failure,
+        'failure to resolve host does not throw, but fails';
 }
