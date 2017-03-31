@@ -5,3 +5,4 @@ perl6:
 install:
     - rakudobrew build-zef
     - zef --depsonly install .
+    - ONLINE_TESTING=1 zef test .
