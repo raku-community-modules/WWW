@@ -6,6 +6,7 @@ WWW - No-nonsense, simple HTTPS client with JSON decoder
 
 # SYNOPSIS
 
+
 ```perl6
     use WWW;
 
