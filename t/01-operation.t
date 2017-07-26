@@ -5,7 +5,7 @@ use Test;
 use Test::When <online>;
 use WWW;
 
-plan 8;
+plan 10;
 
 for <http  https> -> $prot {
     subtest 'get' => {
@@ -50,6 +50,15 @@ for <http  https> -> $prot {
 
         throws-like { post $prot ~ '://httpbin.org/status/404' }, Exception,
             :message(/404/), "can detect a POST 404 over $prot.uc()";
+    }
+
+    subtest 'jpost body' => {
+        plan 2;
+        my $res = jpost "http://httpbin.org/post",
+            '{"a": 42, "foo": "meows"}',
+            :Authorization<Zofmeister>;
+        is-deeply $res.<json><foo>, 'meows', 'sent JSON in body matches';
+        is-deeply $res.<headers><Authorization>, 'Zofmeister', 'headers got sent';
     }
 }
 

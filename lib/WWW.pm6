@@ -13,13 +13,23 @@ sub get ($url) is export {
     }
 }
 
-proto post ($,    %?,       *%    ) is export {*}
+proto post (|) is export {*}
 multi post ($url,           *%form) is export { post $url, %, |%form }
 multi post ($url, %headers, *%form) is export {
     CATCH { .fail }
     with HTTP::UserAgent.new.post($url, %form, |%headers) {
         .is-success or fail .&err;
         .decoded-content
+    }
+}
+multi post ($url, Str:D $json, *%headers) is export {
+    CATCH { .fail }
+    my $req = HTTP::Request.new: POST => $url, |%headers;
+    $req.add-content: $json;
+
+    with HTTP::UserAgent.new.request($req) {
+        .is-success or fail .&err;
+        .decoded-content;
     }
 }
 

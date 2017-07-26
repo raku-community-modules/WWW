@@ -24,6 +24,13 @@ WWW - No-nonsense, simple HTTPS client with JSON decoder
 
     # Same POST as above + decode response as JSON
     say jpost('https://httpbin.org/post', :some<form-arg>)<form><some>;
+
+    # Also can post() or jpost() POST body directly as Str:D; headers passed as named args:
+    say jpost(
+        "http://httpbin.org/post",
+        to-json({:42a, :foo<meows>}),
+        :Authorization<Zofmeister>
+    ).<json><foo>;
 ```
 
 # DESCRIPTION
@@ -63,6 +70,7 @@ resultant data structure.
 ```perl6
     multi post($url where URI:D|Str:D, *%form --> Str:D);
     multi post($url where URI:D|Str:D, %headers, *%form --> Str:D);
+    multi post($url where URI:D|Str:D, Str:D $form-body, *%headers --> Str:D);
 
     say post 'https://httpbin.org/post?meow=moo', :72foo, :bar<♵>;
     say post 'https://httpbin.org/post?meow=moo',
@@ -75,12 +83,15 @@ included as named arguments. It's fine to also include query arguments in the
 URL itself. Returns `Failure` if request fails or does not return a successful
 HTTP code. Returns `Str` with the data on success.
 
+To send POST body directly, pass it as Str:D positional arg. In this calling
+form, the headers are sent as named args.
 
 ## `jpost`
 
 ```perl6
-    multi jpost($url where URI:D|Str:D, *%form --> Str:D);
-    multi jpost($url where URI:D|Str:D, %headers, *%form --> Str:D);
+    multi jpost($url where URI:D|Str:D, *%form);
+    multi jpost($url where URI:D|Str:D, %headers, *%form);
+    multi jpost($url where URI:D|Str:D, Str:D $form-body, *%headers);
 
     say jpost 'https://httpbin.org/post?meow=moo', :72foo, :bar<♵>;
     say jpost 'https://httpbin.org/post?meow=moo',
