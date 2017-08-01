@@ -10,7 +10,7 @@ WWW - No-nonsense, simple HTTPS client with JSON decoder
     use WWW;
 
     # Just GET content (will return Failure on failure):
-    say get 'https://httpbin.org/get?foo=42&bar=x';
+    say get 'https://httpbin.org/get?foo=42&bar=x', :SomeHeader<Value>;
 
     # GET and decode received data as JSON:
     say jget('https://httpbin.org/get?foo=42&bar=x')<args><foo>;
@@ -38,6 +38,9 @@ WWW - No-nonsense, simple HTTPS client with JSON decoder
 Exports a handful of routines to fetch data from online resources and optionally
 decode the responses as JSON.
 
+The module will use `User-Agent` header set to `Rakudo WWW`, unless you specify
+that header.
+
 # TESTING
 
 To run the full test suite, set `ONLINE_TESTING` environmental variable to `1`
@@ -47,14 +50,14 @@ To run the full test suite, set `ONLINE_TESTING` environmental variable to `1`
 ## `get`
 
 ```perl6
-    sub get($url where URI:D|Str:D --> Str:D);
+    sub get($url where URI:D|Str:D, *%headers --> Str:D);
 
     say get 'https://httpbin.org/get?foo=42&bar=x';
 ```
 
 Takes either a `Str` or a [URI](https://modules.perl6.org/dist/URI).
 Returns `Failure` if request fails or does not return a successful HTTP code.
-Returns `Str` with the data on success.
+Returns `Str` with the data on success. Takes headers as named arguments.
 
 ## `jget`
 
