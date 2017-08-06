@@ -2,7 +2,7 @@
     "perl"         : "6.c",
     "name"         : "WWW",
     "license"      : "Artistic-2.0",
-    "version"      : "1.004003",
+    "version"      : "1.004004",
     "description"  : "No-nonsense, simple HTTPS client with JSON decoder",
     "tags"         : [ "HTTP" ],
     "depends"      : [
