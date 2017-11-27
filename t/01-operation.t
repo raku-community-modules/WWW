@@ -63,6 +63,8 @@ for <http  https> -> $prot {
 }
 
 for &get, &jget, &post, &jpost -> &s {
-    isa-ok s('party'), Failure,
+    my $res := s 'party';
+    isa-ok $res, Failure,
         'failure to resolve host does not throw, but fails';
+    so $res; # disarm Failure
 }
