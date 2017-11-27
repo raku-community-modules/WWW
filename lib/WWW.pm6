@@ -4,6 +4,8 @@ use HTTP::UserAgent;
 
 sub jget  (|c) is export { CATCH { .fail }; from-json get  |c }
 sub jpost (|c) is export { CATCH { .fail }; from-json post |c }
+sub jput (|c) is export { CATCH { .fail }; from-json put |c }
+sub jdelete (|c) is export { CATCH { .fail }; from-json delete |c }
 
 sub get ($url, *%headers) is export {
     CATCH { .fail }
@@ -33,6 +35,37 @@ multi post ($url, Str:D $json, *%headers) is export {
     with HTTP::UserAgent.new.request($req) {
         .is-success or fail .&err;
         .decoded-content;
+    }
+}
+
+proto put (|) is export {*}
+multi put ($url,           *%form) is export { put $url, %, |%form }
+multi put ($url, %headers, *%form) is export {
+    CATCH { .fail }
+    %headers<User-Agent> //= 'Rakudo WWW';
+    with HTTP::UserAgent.new.put($url, %form, |%headers) {
+        .is-success or fail .&err;
+        .decoded-content
+    }
+}
+multi put ($url, Str:D $json, *%headers) is export {
+    CATCH { .fail }
+    %headers<User-Agent> //= 'Rakudo WWW';
+    my $req = HTTP::Request.new: PUT => $url, |%headers;
+    $req.add-content: $json;
+
+    with HTTP::UserAgent.new.request($req) {
+        .is-success or fail .&err;
+        .decoded-content;
+    }
+}
+
+sub delete ($url, *%headers) is export {
+    CATCH { .fail }
+    %headers<User-Agent> //= 'Rakudo WWW';
+    with HTTP::UserAgent.new.delete: $url, |%headers {
+        .is-success or fail .&err;
+        .decoded-content
     }
 }
 
