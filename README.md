@@ -173,7 +173,8 @@ resultant data structure.
 Performs HTTP `DELETE` request.
 Takes either a `Str` or a [URI](https://modules.perl6.org/dist/URI).
 Returns `Failure` if request fails or does not return a successful HTTP code.
-Returns `Str` with the data on success. Takes headers as named arguments.
+Returns `Str` with the data on success; if response for a `204 No Content`,
+returns an empty string. Takes headers as named arguments.
 
 ### `jdelete`
 

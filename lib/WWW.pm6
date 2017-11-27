@@ -70,6 +70,7 @@ sub delete ($url, *%headers) is export(:extras) {
     CATCH { .fail }
     %headers<User-Agent> //= 'Rakudo WWW';
     with HTTP::UserAgent.new.delete: $url, |%headers {
+        .code == 204 and return ''; # "204 No Content"
         .is-success or fail .&err;
         .decoded-content
     }
