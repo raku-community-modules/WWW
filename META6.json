@@ -2,7 +2,7 @@
     "perl"         : "6.c",
     "name"         : "WWW",
     "license"      : "Artistic-2.0",
-    "version"      : "1.005002",
+    "version"      : "1.005003",
     "description"  : "No-nonsense, simple HTTPS client with JSON decoder",
     "tags"         : [ "HTTP" ],
     "depends"      : [
@@ -19,5 +19,5 @@
         "WWW" : "lib/WWW.pm6"
     },
     "authors"       : ["Zoffix Znet"],
-    "support"       : {"source"   : "git://github.com/zoffixznet/perl6-WWW.git"}
+    "support"       : {"source"   : "https://github.com/zoffixznet/perl6-WWW.git"}
 }
