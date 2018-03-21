@@ -50,9 +50,25 @@ decode the responses as JSON.
 The module will use `User-Agent` header set to `Rakudo WWW`, unless you specify
 that header.
 
+# INSTALLATION
+
+```bash
+zef install WWW
+```
+
+On some operating systems you'll also need `libssl` installed.
+
+```bash
+sudo apt-get install libssl-dev
+```
+
 # TESTING
 
 To run the full test suite, set `ONLINE_TESTING` environmental variable to `1`
+
+```bash
+ONLINE_TESTING=1 zef install WWW
+```
 
 # EXPORTED ROUTINES
 
