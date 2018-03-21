@@ -52,14 +52,16 @@ that header.
 
 # INSTALLATION
 
-```bash
-zef install WWW
-```
-
-On some operating systems you'll also need `libssl` installed.
+On some operating systems you'll need `libssl` installed:
 
 ```bash
 sudo apt-get install libssl-dev
+```
+
+Then just install the module with the module manager:
+
+```bash
+zef install WWW
 ```
 
 # TESTING
