@@ -33,7 +33,7 @@ WWW - No-nonsense, simple HTTPS client with JSON decoder
     ).<json><foo>;
 ```
 
-More HTTP methods:
+Import more HTTP methods using `:extras`
 
 ```perl6
     use WWW :extras;
@@ -44,10 +44,10 @@ More HTTP methods:
 
 # DESCRIPTION
 
-Exports a handful of routines to fetch data from online resources and optionally
-decode the responses as JSON.
+Exports a handful of routines to fetch data from online resources
+using HTTP verbs and optionally decode the responses as JSON.
 
-The module will use `User-Agent` header set to `Rakudo WWW`, unless you specify
+The module will set the `User-Agent` header to `Rakudo WWW`, unless you specify
 that header.
 
 # INSTALLATION
