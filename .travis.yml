@@ -3,6 +3,6 @@ perl6:
     - latest
 
 install:
-    - apt-get install libssl-dev
+    - sudo apt-get install libssl-dev
     - rakudobrew build-zef
     - NETWORK_TESTING=1 ONLINE_TESTING=1 zef --debug install .
