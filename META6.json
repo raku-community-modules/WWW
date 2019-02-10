@@ -1,5 +1,5 @@
 {
-    "perl"         : "6.c",
+    "perl"         : "6.*",
     "name"         : "WWW",
     "license"      : "Artistic-2.0",
     "version"      : "1.005003",
@@ -19,5 +19,5 @@
         "WWW" : "lib/WWW.pm6"
     },
     "authors"       : ["Zoffix Znet"],
-    "support"       : {"source"   : "https://github.com/zoffixznet/perl6-WWW.git"}
+    "support"       : {"source"   : "https://github.com/perl6-community-modules/perl6-WWW.git"}
 }
