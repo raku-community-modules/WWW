@@ -11,36 +11,35 @@ for <http  https> -> $prot {
     subtest 'get' => {
         plan 3;
         subtest "get fetched good content over $prot.uc()" => {
-            with get($prot ~ '://httpbin.org/get?foo=42&bar=x') {
+            with get($prot ~ '://eu.httpbin.org/get?foo=42&bar=x') {
                 plan 3;
-                like $_, rx/'://httpbin.org/get'/, '(1)';
+                like $_, rx/'://eu.httpbin.org/get'/, '(1)';
                 like $_, rx/foo/, '(2)';
                 like $_, rx/bar/, '(3)';
             }
         }
 
         is-deeply
-            jget($prot ~ '://httpbin.org/get?foo=72&bar=x')<args><foo bar>,
+            jget($prot ~ '://eu.httpbin.org/get?foo=72&bar=x')<args><foo bar>,
             ('72', 'x'), "jget() can decode response over $prot.uc()";
 
-        throws-like { get $prot ~ '://httpbin.org/status/404' }, Exception,
+        throws-like { get $prot ~ '://eu.httpbin.org/status/404' }, Exception,
             :message(/404/), "can detect a 404 over $prot.uc()";
     }
 
     subtest 'post' => {
         plan 5;
         subtest "post fetched good content over $prot.uc()" => {
-            with post($prot ~ '://httpbin.org/post', :72foo, :bar<♵>) {
+            with post($prot ~ '://eu.httpbin.org/post', :72foo, :bar<♵>) {
                 plan 3;
-                like $_, rx/'://httpbin.org/post'/, '(1)';
+                like $_, rx/'://eu.httpbin.org/post'/, '(1)';
                 like $_, rx/foo/, '(2)';
                 like $_, rx/bar/, '(3)';
             }
         }
 
-        my $res = jpost $prot ~ '://httpbin.org/post?foo=42&bar=x',
+        my $res = jpost $prot ~ '://eu.httpbin.org/post?foo=42&bar=x',
             :72foo, :bar<♵>, %( :Foo<Bar> );
-
         is-deeply $res<form><foo bar>,
             ('72', '♵'), "jpost() can decode response over $prot.uc() [form]";
         is-deeply $res<args><foo bar>,
@@ -48,13 +47,13 @@ for <http  https> -> $prot {
         is-deeply $res<headers><Foo>,
             'Bar', "jpost() can decode response over $prot.uc() [headers]";
 
-        throws-like { post $prot ~ '://httpbin.org/status/404' }, Exception,
+        throws-like { post $prot ~ '://eu.httpbin.org/status/404' }, Exception,
             :message(/404/), "can detect a POST 404 over $prot.uc()";
     }
 
     subtest 'jpost body' => {
         plan 2;
-        my $res = jpost "http://httpbin.org/post",
+        my $res = jpost "http://eu.httpbin.org/post",
             '{"a": 42, "foo": "meows"}',
             :Authorization<Zofmeister>;
         is-deeply $res.<json><foo>, 'meows', 'sent JSON in body matches';
