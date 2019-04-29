@@ -1,7 +1,10 @@
-language: perl6
-perl6:
-    - latest
+language: minimal
+
+services:
+  - docker
 
 install:
-    - rakudobrew build-zef
-    - NETWORK_TESTING=1 ONLINE_TESTING=1 zef --debug install .
+  - docker pull jjmerelo/test-perl6
+  - docker images
+  
+script: docker run -t  --entrypoint="/bin/sh" -v  $TRAVIS_BUILD_DIR:/test jjmerelo/test-perl6 -c "apk add --update --no-cache openssl-dev && zef install --deps-only . && NETWORK_TESTING=1 ONLINE_TESTING=1 zef --debug test ."

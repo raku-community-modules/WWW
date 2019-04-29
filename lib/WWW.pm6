@@ -1,6 +1,7 @@
 unit module WWW;
 use JSON::Fast;
 use HTTP::UserAgent;
+use HTTP::Response:auth<github:sergot>; 
 
 sub jget  (|c) is export(:DEFAULT, :extras) {
     CATCH { .fail }; from-json get  |c
