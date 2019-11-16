@@ -1,23 +1,30 @@
 {
-    "perl"         : "6.*",
-    "name"         : "WWW",
-    "license"      : "Artistic-2.0",
-    "version"      : "1.005004",
-    "description"  : "No-nonsense, simple HTTPS client with JSON decoder",
-    "tags"         : [ "HTTP" ],
-    "depends"      : [
-        "HTTP::UserAgent",
-        "JSON::Fast",
-        "IO::Socket::SSL"
-    ],
-    "test-depends" : [
-        "Test",
-        "Test::When",
-        "Test::META"
-    ],
-    "provides"     : {
-        "WWW" : "lib/WWW.pm6"
-    },
-    "authors"       : ["Zoffix Znet"],
-    "support"       : {"source"   : "https://github.com/perl6-community-modules/perl6-WWW.git"}
+  "name": "WWW",
+  "description": "No-nonsense, simple HTTPS client with JSON decoder",
+  "version": "1.005004",
+  "perl": "6.*",
+  "authors": [
+    "Zoffix Znet"
+  ],
+  "auth": "github:perl6-community-modules",
+  "depends": [
+    "HTTP::UserAgent",
+    "JSON::Fast",
+    "IO::Socket::SSL"
+  ],
+  "test-depends": [
+    "Test",
+    "Test::When",
+    "Test::META"
+  ],
+  "provides": {
+    "WWW": "lib/WWW.pm6"
+  },
+  "support": {
+    "source": "https://github.com/perl6-community-modules/perl6-WWW.git"
+  },
+  "license": "Artistic-2.0",
+  "tags": [
+    "HTTP"
+  ]
 }
