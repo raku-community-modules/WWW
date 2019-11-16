@@ -23,16 +23,15 @@ sub get ($url, *%headers) is export(:DEFAULT, :extras) {
 
 proto post (|) is export(:DEFAULT, :extras) {*}
 multi post ($url, *%form) is export(:DEFAULT, :extras) {
+    say "In first post with ", %form;
     post $url, %, |%form
 }
 multi post ($url, %headers, *%form) is export(:DEFAULT, :extras) {
     CATCH { .fail }
     %headers<User-Agent> //= 'Rakudo WWW';
-    say "In second post with ", %form, %headers;
-    my $req = HTTP::Request.new: POST => $url, %form, |%headers;
-    dd $req;
-    with HTTP::UserAgent.new.request($req) {
-	say "Made second request";
+    say "In second post with ", $url, %form, %headers;
+
+    with HTTP::UserAgent.new.post($url, %form, |%headers) {
         dd $_;
         .is-success or fail .&err;
         .decoded-content
@@ -43,7 +42,6 @@ multi post ($url, Str:D $json, *%headers) is export(:DEFAULT, :extras) {
     %headers<User-Agent> //= 'Rakudo WWW';
     my $req = HTTP::Request.new: POST => $url, |%headers;
     $req.add-content: $json;
-    say "In third post with ", $json, %headers;
     dd $req;
     with HTTP::UserAgent.new.request($req) {
         .is-success or fail .&err;
