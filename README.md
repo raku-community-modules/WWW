@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/zoffixznet/perl6-WWW.svg)](https://travis-ci.org/zoffixznet/perl6-WWW)
+[![Build Status](https://travis-ci.org/perl6-community-modules/perl6-WWW.svg)](https://travis-ci.org/perl6-community-modules/perl6-WWW)
 
 # NAME
 
