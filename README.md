@@ -221,16 +221,18 @@ be rejected; you have to ensure it's proper manually. Patches welcome.
 #### REPOSITORY
 
 Fork this module on GitHub:
-https://github.com/zoffixznet/perl6-WWW
+https://github.com/raku-community-modules/perl6-WWW
 
 #### BUGS
 
 To report bugs or request features, please use
-https://github.com/zoffixznet/perl6-WWW/issues
+https://github.com/raku-community-modules/perl6-WWW/issues
 
-#### AUTHOR
+#### ORIGINAL AUTHOR
 
 Zoffix Znet (http://perl6.party/)
+
+Now maintained by the Raku community as part of the [Raku community modules](https://github.com/raku-community-modules)
 
 #### LICENSE
 
