@@ -6,7 +6,7 @@ WWW - No-nonsense, simple HTTPS client with JSON decoder
 
 # SYNOPSIS
 
-```perl6
+```raku
     use WWW;
 
     # Just GET content (will return Failure on failure):
@@ -35,7 +35,7 @@ WWW - No-nonsense, simple HTTPS client with JSON decoder
 
 Import more HTTP methods using `:extras`
 
-```perl6
+```raku
     use WWW :extras;
 
     say jdelete 'https://httpbin.org/delete';
@@ -80,19 +80,19 @@ These routines get exported by default:
 
 ### `get`
 
-```perl6
+```raku
     sub get($url where URI:D|Str:D, *%headers --> Str:D);
 
     say get 'https://httpbin.org/get?foo=42&bar=x';
 ```
 
-Takes either a `Str` or a [URI](https://modules.perl6.org/dist/URI).
+Takes either a `Str` or a [URI](https://modules.raku.org/dist/URI).
 Returns `Failure` if request fails or does not return a successful HTTP code.
 Returns `Str` with the data on success. Takes headers as named arguments.
 
 ### `jget`
 
-```perl6
+```raku
     say jget 'https://httpbin.org/get?foo=42&bar=x';
 ```
 
@@ -101,7 +101,7 @@ resultant data structure.
 
 ### `post`
 
-```perl6
+```raku
     multi post($url where URI:D|Str:D, *%form --> Str:D);
     multi post($url where URI:D|Str:D, %headers, *%form --> Str:D);
     multi post($url where URI:D|Str:D, Str:D $form-body, *%headers --> Str:D);
@@ -111,7 +111,7 @@ resultant data structure.
         %(Content-type => 'application/json'), :72foo, :bar<♵>;
 ```
 
-Takes either a `Str` or a [URI](https://modules.perl6.org/dist/URI), followed
+Takes either a `Str` or a [URI](https://modules.raku.org/dist/URI), followed
 by an optional `Hash` with HTTP headers to send. Form POST parameters can be
 included as named arguments. It's fine to also include query arguments in the
 URL itself. Returns `Failure` if request fails or does not return a successful
@@ -122,7 +122,7 @@ form, the headers are sent as named args.
 
 ### `jpost`
 
-```perl6
+```raku
     multi jpost($url where URI:D|Str:D, *%form);
     multi jpost($url where URI:D|Str:D, %headers, *%form);
     multi jpost($url where URI:D|Str:D, Str:D $form-body, *%headers);
@@ -140,13 +140,13 @@ resultant data structure.
 These routines get exported *in addition to* the `:DEFAULT` exports, when
 `:extras` export tag is requested:
 
-```perl6
+```raku
 use WWW :extras;
 ```
 
 ### `put`
 
-```perl6
+```raku
     multi put($url where URI:D|Str:D, *%form --> Str:D);
     multi put($url where URI:D|Str:D, %headers, *%form --> Str:D);
     multi put($url where URI:D|Str:D, Str:D $form-body, *%headers --> Str:D);
@@ -156,7 +156,7 @@ use WWW :extras;
         %(Content-type => 'application/json'), :72foo, :bar<♵>;
 ```
 
-Takes either a `Str` or a [URI](https://modules.perl6.org/dist/URI), followed
+Takes either a `Str` or a [URI](https://modules.raku.org/dist/URI), followed
 by an optional `Hash` with HTTP headers to send. Form PUT parameters can be
 included as named arguments. It's fine to also include query arguments in the
 URL itself. Returns `Failure` if request fails or does not return a successful
@@ -167,7 +167,7 @@ form, the headers are sent as named args.
 
 ### `jput`
 
-```perl6
+```raku
     multi jput($url where URI:D|Str:D, *%form --> Str:D);
     multi jput($url where URI:D|Str:D, %headers, *%form --> Str:D);
     multi jput($url where URI:D|Str:D, Str:D $form-body, *%headers --> Str:D);
@@ -182,21 +182,21 @@ resultant data structure.
 
 ### `delete`
 
-```perl6
+```raku
     sub delete($url where URI:D|Str:D, *%headers --> Str:D);
 
     say delete 'https://httpbin.org/get?foo=42&bar=x';
 ```
 
 Performs HTTP `DELETE` request.
-Takes either a `Str` or a [URI](https://modules.perl6.org/dist/URI).
+Takes either a `Str` or a [URI](https://modules.raku.org/dist/URI).
 Returns `Failure` if request fails or does not return a successful HTTP code.
 Returns `Str` with the data on success; if response for a `204 No Content`,
 returns an empty string. Takes headers as named arguments.
 
 ### `jdelete`
 
-```perl6
+```raku
     say jdelete 'https://httpbin.org/get?foo=42&bar=x';
 ```
 
@@ -213,8 +213,8 @@ be rejected; you have to ensure it's proper manually. Patches welcome.
 
 # SEE ALSO
 
-- [`LWP::Simple`](https://modules.perl6.org/repo/LWP::Simple)
-- [`HTTP::UserAgent`](https://modules.perl6.org/repo/HTTP::UserAgent)
+- [`LWP::Simple`](https://modules.raku.org/repo/LWP::Simple)
+- [`HTTP::UserAgent`](https://modules.raku.org/repo/HTTP::UserAgent)
 
 ----
 
