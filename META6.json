@@ -21,7 +21,7 @@
     "WWW": "lib/WWW.pm6"
   },
   "support": {
-    "source": "https://github.com/perl6-community-modules/perl6-WWW.git"
+    "source": "https://github.com/perl6-community-modules/WWW.git"
   },
   "license": "Artistic-2.0",
   "tags": [
