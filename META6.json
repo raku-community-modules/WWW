@@ -1,7 +1,7 @@
 {
   "name": "WWW",
-  "description": "No-nonsense, simple HTTPS client with JSON decoder",
-  "version": "1.005004",
+  "description": "No-nonsense, simple HTTP/S client with JSON decoder",
+  "version": "1.005005",
   "perl": "6.*",
   "authors": [
       "Zoffix Znet",
