@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.com/raku-community-modules/WWW.svg)](https://travis-ci.com/raku-community-modules/WWW)
 
+![Logo](logotype/logo_32x32.png)
+
 # NAME
 
 WWW - No-nonsense, simple HTTPS client with JSON decoder
