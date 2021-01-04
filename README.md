@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/raku-community-modules/perl6-WWW.svg)](https://travis-ci.com/raku-community-modules/perl6-WWW)
+[![Build Status](https://travis-ci.com/raku-community-modules/WWW.svg)](https://travis-ci.com/raku-community-modules/WWW)
 
 # NAME
 
