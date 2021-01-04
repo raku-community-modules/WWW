@@ -221,12 +221,12 @@ be rejected; you have to ensure it's proper manually. Patches welcome.
 #### REPOSITORY
 
 Fork this module on GitHub:
-https://github.com/raku-community-modules/perl6-WWW
+https://github.com/raku-community-modules/WWW
 
 #### BUGS
 
 To report bugs or request features, please use
-https://github.com/raku-community-modules/perl6-WWW/issues
+https://github.com/raku-community-modules/WWW/issues
 
 #### ORIGINAL AUTHOR
 

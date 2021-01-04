@@ -4,9 +4,10 @@
   "version": "1.005004",
   "perl": "6.*",
   "authors": [
-    "Zoffix Znet"
+      "Zoffix Znet",
+      "Raku community modules maintainers"
   ],
-  "auth": "github:perl6-community-modules",
+  "auth": "github:raku-community-modules",
   "depends": [
     "HTTP::UserAgent",
     "JSON::Fast",
