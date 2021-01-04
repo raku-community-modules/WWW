@@ -1,0 +1,20 @@
+name: "Test"
+on: [ push, pull_request ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: jjmerelo/raku-test:latest
+      options: --user root
+      env:
+        NETWORK_TESTING: 1
+        ONLINE_TESTING: 1
+    steps:
+      - name: Install packages
+        run: apk add --update --no-cache openssl-dev
+      - name: Install modules
+        run: zef install --deps-only .
+      - name: Test
+        run: zef --debug test .
+
+
