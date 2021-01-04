@@ -1,6 +1,5 @@
-[![Build Status](https://travis-ci.com/raku-community-modules/WWW.svg)](https://travis-ci.com/raku-community-modules/WWW)
+![Logo](logotype/logo_32x32.png) | ![Test](https://github.com/raku-community-modules/WWW/workflows/Test/badge.svg)
 
-![Logo](logotype/logo_32x32.png)
 
 # NAME
 

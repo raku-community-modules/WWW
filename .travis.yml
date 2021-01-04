@@ -1,9 +1,0 @@
-language: minimal
-
-services:
-  - docker
-
-install:
-  - docker pull jjmerelo/test-raku
-
-script: docker run -t  --entrypoint="/bin/sh" -v  $TRAVIS_BUILD_DIR:/test -u root jjmerelo/test-raku -c "apk add --update --no-cache openssl-dev && zef install --deps-only . && NETWORK_TESTING=1 ONLINE_TESTING=1 zef --debug test ."
