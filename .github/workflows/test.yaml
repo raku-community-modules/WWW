@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Install packages
         run: apk add --update --no-cache openssl-dev
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install modules
         run: zef install --deps-only .
       - name: Test
