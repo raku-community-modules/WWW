@@ -14,17 +14,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image: jjmerelo/raku-test:latest
-      options: --user root
+      image: ghcr.io/raku-community-modules/raku-test-www:latest
       env:
         ONLINE_TESTING: 1
     steps:
-      - name: Install packages
-        run: apk add --update --no-cache openssl-dev
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install modules
-        run: zef install --deps-only .
       - name: Test
         run: zef --debug test .
 
