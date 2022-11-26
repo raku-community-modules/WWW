@@ -32,4 +32,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/jj/raku-test-www
+          tags: ${{ env.REGISTRY }}/raku-community-modules/raku-test-www
