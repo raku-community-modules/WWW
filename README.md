@@ -207,6 +207,14 @@ resultant data structure.
 You probably want to use `delete()` instead, as `DELETE` requests can get
 return no content, causing JSON parse failures.
 
+### `head`
+
+```raku
+say head 'https://httpbin.org/get?foo=42&bar=x';
+```
+
+Same as `get`, except it does not actually download the content, just the head.
+
 # LIMITATIONS
 
 Due to nuances of upstream code, currently any non-RFC-conformant URL will
