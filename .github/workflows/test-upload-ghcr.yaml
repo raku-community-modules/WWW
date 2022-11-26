@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - Dockerfile
+      - META6.json
       - .github/workflows/test-upload-ghcr.yaml
 
 env:
