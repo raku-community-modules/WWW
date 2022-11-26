@@ -14,7 +14,6 @@
     "IO::Socket::SSL"
   ],
   "test-depends": [
-    "Test",
     "Test::When",
     "Test::META"
   ],
