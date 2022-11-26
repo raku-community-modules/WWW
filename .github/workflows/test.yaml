@@ -13,7 +13,7 @@ jobs:
       - name: Install packages
         run: apk add --update --no-cache openssl-dev
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Install modules
         run: zef install --/test --deps-only .
       - name: Test
