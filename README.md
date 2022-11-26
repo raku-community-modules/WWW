@@ -1,4 +1,4 @@
-![Logo](logotype/logo_32x32.png) | ![Test](https://github.com/raku-community-modules/WWW/workflows/Test/badge.svg)
+![Logo](logotype/logo_32x32.png) | ![Test](https://github.com/raku-community-modules/WWW/workflows/Test/badge.svg)[![Test-create and publish Docker images](https://github.com/raku-community-modules/WWW/actions/workflows/test-upload-ghcr.yaml/badge.svg)](https://github.com/raku-community-modules/WWW/actions/workflows/test-upload-ghcr.yaml)
 
 
 # NAME
