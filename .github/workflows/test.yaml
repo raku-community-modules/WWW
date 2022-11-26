@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install modules
-        run: zef install --deps-only .
+        run: zef install --/test --deps-only .
       - name: Test
         run: zef --debug test .
 
