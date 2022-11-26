@@ -1,5 +1,15 @@
 name: "Test"
-on: [ push, pull_request ]
+on:
+  push:
+    paths:
+      - META6.json
+      - lib/*
+      - t/*
+  pull_request:
+    paths:
+      - META6.json
+      - lib/*
+      - t/*
 jobs:
   test:
     runs-on: ubuntu-latest
