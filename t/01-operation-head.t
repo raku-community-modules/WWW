@@ -16,6 +16,9 @@ for <http  https> -> $prot {
                 like @_[4][0], rx/'gunicorn'/, 'Server is correct';
             }
         }
+
+        throws-like { head $prot ~ '://eu.httpbin.org/status/404' }, Exception,
+                :message(/404/), "can detect a 404 over $prot.uc()";
     }
 
 }
