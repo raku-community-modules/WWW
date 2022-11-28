@@ -7,11 +7,11 @@ use WWW;
 
 plan 4;
 
-for &get, &jget, &post, &jpost -> &s {
+for &get, &jget, &post, &jpost -> &op {
     CATCH {
         ok $_, "Fails OK";
     }
-    my $res := s 'party';
+    my $res := op 'party';
     isa-ok $res, Failure,
         'failure to resolve host does not throw, but fails';
 }
