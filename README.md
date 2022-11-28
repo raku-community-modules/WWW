@@ -223,8 +223,8 @@ be rejected; you have to ensure it's proper manually. Patches welcome.
 
 # SEE ALSO
 
-- [`LWP::Simple`](https://modules.raku.org/repo/LWP::Simple)
-- [`HTTP::UserAgent`](https://modules.raku.org/repo/HTTP::UserAgent)
+- [`LWP::Simple`](https://raku.land/zef:raku-community-modules/LWP::Simple)
+- [`HTTP::UserAgent`](https://raku.land/github:sergot/HTTP::UserAgent)
 
 ----
 
