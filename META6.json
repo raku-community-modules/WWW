@@ -1,13 +1,13 @@
 {
   "name": "WWW",
   "description": "No-nonsense, simple HTTP/S client with JSON decoder",
-  "version": "1.005006",
+  "version": "1.005007",
   "perl": "6.*",
   "authors": [
       "Zoffix Znet",
       "Raku community modules maintainers"
   ],
-  "auth": "github:raku-community-modules",
+  "auth": "zef:raku-community-modules",
   "depends": [
     "HTTP::UserAgent",
     "JSON::Fast",

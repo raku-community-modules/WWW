@@ -1,10 +1,7 @@
-#!raku
-
 use lib 'lib';
 use Test;
 use Test::When <online>;
 use WWW;
-use URI;
 
 plan 4;
 
