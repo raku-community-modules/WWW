@@ -36,11 +36,15 @@ for <http  https> -> $prot {
     }
 
     subtest 'jpost body' => {
-        plan 2;
+        plan 3;
         my $res = jpost "http://eu.httpbin.org/post",
             '{"a": 42, "foo": "meows"}',
             :Authorization<Zofmeister>;
         is-deeply $res.<json><foo>, 'meows', 'sent JSON in body matches';
         is-deeply $res.<headers><Authorization>, 'Zofmeister', 'headers got sent';
+
+        throws-like {
+            jpost "http://eu.httpbin.org/psst", '{"a": 42, "foo": "meows"}',
+        }, Exception, :message(/404/), "Fails with bad URL over $prot";
     }
 }

@@ -20,7 +20,7 @@ sub get ($url, *%headers) is export(:DEFAULT, :extras) {
     }
 }
 
-sub head ($url) is export(:extras) {
+sub head ($url) is export(:DEFAULT,:extras) {
     CATCH { .fail }
     my $ua = HTTP::UserAgent.new(:throw-exceptions);
     $ua.get($url).header.hash<Content-Type Content-Length Last-Modified Expires Server> or fail "No header for $url"
