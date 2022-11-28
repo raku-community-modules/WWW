@@ -136,6 +136,15 @@ say jpost 'https://httpbin.org/post?meow=moo',
 Same as `post()` except will also decode the response as JSON and return
 resultant data structure.
 
+### `head`
+
+```raku
+say head 'https://httpbin.org/get?foo=42&bar=x';
+```
+
+Same as `get`, except it does not actually download the content, just the head.
+
+
 ## `:extras` Export Tag
 
 These routines get exported *in addition to* the `:DEFAULT` exports, when
@@ -206,14 +215,6 @@ resultant data structure.
 
 You probably want to use `delete()` instead, as `DELETE` requests can get
 return no content, causing JSON parse failures.
-
-### `head`
-
-```raku
-say head 'https://httpbin.org/get?foo=42&bar=x';
-```
-
-Same as `get`, except it does not actually download the content, just the head.
 
 # LIMITATIONS
 
